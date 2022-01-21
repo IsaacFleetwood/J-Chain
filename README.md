@@ -8,19 +8,25 @@ In order to get started, you can add add the JChain.jar as a dependency to your 
 
 
 To start wiritng code with J-Chain, one simply needs to create a Panel.
-```Panel panel = new Panel();```
+```java
+Panel panel = new Panel();
+```
 
 From there, any GUI items can be added. Then, once the panel is fully created, it can be opened as a GUI window via running the `.open()` method on it.
 
-```panel.open();```
+```java
+panel.open();
+```
 
 The size of the panel must be set before opening it. This can be done via
 
-```panel.setPanelSize(width, height);```
+```java
+panel.setPanelSize(width, height);
+```
 
 There are also many other things that can be done to the panel, such as setting the layout manager
 
-```
+```java
 panel.setLayout(new GridLayout(2,2))
 panel.boxLayout(BoxLayout.Y_AXIS)
 ```
@@ -29,14 +35,14 @@ Then, panels also support tabs and modals.
 
 Tabs are structures where only one tab can be visible at a time, allowing for a menu to have many different views at different times.
 
-```
+```java
 panel.addTabPanel("tab-id", new Panel());
 panel.openTabPanel("tab-id");
 ```
 
 Modals are pop-ups that overlay a panel. This allows information to be shown to the user very directly.
 
-```
+```java
 panel.addModal("modal-id", new Panel
 panel.showModal("modal-id");
 ```
@@ -48,19 +54,25 @@ J-Chain also provides encapsulations of common Swing components to allow for mor
 
 A Label is a piece of text that is a normal size.
 
-```panel.add(new Label("Hello!"));```
+```java
+panel.add(new Label("Hello!"));
+```
 
 A Heading is a piece of text that is large and bold.
 
-```panel.add(new Heading("Hello!"));```
+```java
+panel.add(new Heading("Hello!"));
+```
 
 A TextField is a text field input that has a label above it. It also automatically stores the input for later retrieval.
 
-```panel.add(new TextField("Enter your username", "username"));```
+```java
+panel.add(new TextField("Enter your username", "username"));
+```
 
 A Button is a button that can run a callback function whenever it is clicked
 
-```
+```java
 panel.add(new Button("Click Me!")
     .onClick((Panel __) -> {
       System.out.println("I was clicked!");
@@ -76,7 +88,7 @@ And lastly, J-Chain also keeps track of user input such that you can access it a
 This is done via a "key" system where keys are given to inputs, and then mapped to the panel they reside in.
 This means that you can do something like the following:
 
-```
+```java
 panel
   .add(new TextField("Type here!", "key"))
   .add(new Button("Click Me!")
@@ -96,7 +108,7 @@ In code, this can allow for reducing unnecessary variables and removing redundan
 
 For example,
 
-```
+```java
 (new Panel()) // Initialize the panel
   .setPanelSize(300, 200) // Set the panel size
   .add(new Label("Hello!")) // Add a new label
@@ -111,7 +123,7 @@ Each of the methods were ran via method chaining, which allowed for no variables
 
 ## Demos
 
-```
+```java
 Panel panel = new Panel();
 panel
   .boxLayout(BoxLayout.Y_AXIS)
